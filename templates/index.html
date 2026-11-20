@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>{{ app_name }}</title>
+
+    <link
+        rel="stylesheet"
+        href="{{ url_for('static', path='/style.css') }}"
+    >
+</head>
+
+<body>
+
+    <main class="page">
+
+        <section class="hero">
+            <p class="badge">
+                FastAPI + Streaming + Production Concepts
+            </p>
+
+            <h1>{{ app_name }}</h1>
+
+            <p class="subtitle">
+                A beginner-friendly demo for learning how a simple
+                LLM API becomes more production-ready.
+            </p>
+        </section>
+
+
+        <section class="card">
+
+            <label for="apiKey">
+                API Key
+            </label>
+
+            <input
+                id="apiKey"
+                type="text"
+                value="course-secret"
+                placeholder="Enter X-API-Key"
+            >
+
+
+            <label for="message">
+                Your Question
+            </label>
+
+            <textarea
+                id="message"
+                rows="5"
+                placeholder="Example: Explain RAG in simple words"
+            ></textarea>
+
+
+            <div class="button-row">
+
+                <button
+                    id="normalButton"
+                    type="button"
+                >
+                    Normal Response
+                </button>
+
+                <button
+                    id="streamButton"
+                    type="button"
+                    class="secondary"
+                >
+                    Stream Response
+                </button>
+
+            </div>
+
+
+            <div class="result-box">
+
+                <div class="result-heading">
+                    <h2>AI Response</h2>
+
+                    <span id="status">
+                        Ready
+                    </span>
+                </div>
+
+                <pre id="output">Your response will appear here...</pre>
+
+            </div>
+
+        </section>
+
+
+        <section class="concepts">
+
+            <h2>
+                What this project demonstrates
+            </h2>
+
+            <div class="concept-grid">
+
+                <article>
+                    <h3>Authentication</h3>
+                    <p>
+                        Requests must include a valid API key.
+                    </p>
+                </article>
+
+                <article>
+                    <h3>Validation</h3>
+                    <p>
+                        Pydantic checks incoming request data.
+                    </p>
+                </article>
+
+                <article>
+                    <h3>Rate Limiting</h3>
+                    <p>
+                        Limits excessive requests from one client.
+                    </p>
+                </article>
+
+                <article>
+                    <h3>Retry + Timeout</h3>
+                    <p>
+                        Handles temporary failures and long waits.
+                    </p>
+                </article>
+
+                <article>
+                    <h3>Idempotency</h3>
+                    <p>
+                        Helps avoid duplicate processing.
+                    </p>
+                </article>
+
+                <article>
+                    <h3>SSE Streaming</h3>
+                    <p>
+                        Sends AI output gradually to the browser.
+                    </p>
+                </article>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <script
+        src="{{ url_for('static', path='/app.js') }}"
+    ></script>
+
+</body>
+</html>
